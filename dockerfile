@@ -15,6 +15,6 @@ COPY package*.json ./
 RUN npm install --production
 COPY --from=BUILD_IMAGE /app/build ./
 ENV NODE_ENV=production
-ENV MONGO_URI=mongodb://mongo:27017/subscribe
+ENV MONGO_URI=mongodb://mongo:27017/plans
 EXPOSE 5000
 CMD ["node", "index.js"]

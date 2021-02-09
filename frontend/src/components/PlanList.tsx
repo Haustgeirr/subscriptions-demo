@@ -1,15 +1,15 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Container, Grid } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Container, Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { makeStyles } from '@material-ui/core/styles';
 
-import { Plan, State, Rate } from "../types";
-import { CURRENCY_SYMBOL } from "../constants";
-import PlanCard from "./PlanCard";
-import CurrencyPricing from "./CurrencyPricing";
-import SubmitButton from "./SubmitButton";
+import { Plan, State, Rate } from '../types';
+import { CURRENCY_SYMBOL } from '../constants';
+import PlanCard from './PlanCard';
+import CurrencyPricing from './CurrencyPricing';
+import SubmitButton from './SubmitButton';
 
 const useStyles = makeStyles((theme) => ({
   totalGrid: {
@@ -33,13 +33,13 @@ const PlanList = ({
 
   if (!plans.length || !rates.length) {
     return (
-      <div className="plans-container">
-        <Container maxWidth="xs">
+      <div className='plans-container'>
+        <Container maxWidth='xs'>
           <Grid
             container
-            direction="column"
-            justify="center"
-            alignItems="center"
+            direction='column'
+            justify='center'
+            alignItems='center'
           >
             <CircularProgress />
           </Grid>
@@ -58,7 +58,7 @@ const PlanList = ({
     const exPlan = {
       planCode: p.planCode,
       planName: p.planName,
-      cost: round((period === "monthly" ? p.costMonth : p.costYear) * exRate),
+      cost: round((period === 'monthly' ? p.costMonth : p.costYear) * exRate),
       selected: p.selected,
     };
     return exPlan;
@@ -69,20 +69,20 @@ const PlanList = ({
     .reduce((a, b) => a + b.cost, 0);
 
   const symbol = CURRENCY_SYMBOL[currency];
-  const cardPeriod = period === "monthly" ? "month" : "year";
+  const cardPeriod = period === 'monthly' ? 'month' : 'year';
 
   function formatCurrency(value: number) {
-    return symbol + value.toFixed(2) + "/" + cardPeriod;
+    return symbol + value.toFixed(2) + '/' + cardPeriod;
   }
 
   return (
-    <div className="plans-container">
-      <Container maxWidth="xs">
+    <div className='plans-container'>
+      <Container maxWidth='xs'>
         <Grid
           container
-          direction="column"
-          justify="center"
-          alignItems="stretch"
+          direction='column'
+          justify='center'
+          alignItems='stretch'
         >
           {exPlans.map((plan) => {
             return (
@@ -99,17 +99,17 @@ const PlanList = ({
           })}
         </Grid>
       </Container>
-      <Container maxWidth="xs">
+      <Container maxWidth='xs'>
         <Grid
           container
-          direction="row"
-          justify="space-between"
-          alignItems="center"
+          direction='row'
+          justify='space-between'
+          alignItems='center'
           className={classes.totalGrid}
         >
-          <Grid direction="row">
-            <Typography variant="body2">Total </Typography>
-            <Typography variant="h5">
+          <Grid>
+            <Typography variant='body2'>Total </Typography>
+            <Typography variant='h5'>
               {formatCurrency(round(totalPrice))}
             </Typography>
           </Grid>
