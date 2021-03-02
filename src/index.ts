@@ -24,14 +24,15 @@ const app = express();
 
 // Configure Express
 const origin = {
-  origin: isProduction ? 'http://localhost:3000' : '*',
+  // origin: isProduction ? 'http://localhost:3000' : '*',
+  origin: '*',
 };
 
 app.use(cors(origin));
 app.use('/api/v1', v1Router);
 
 // Set up listener
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.info(`Server: Listening on port ${PORT}`);
