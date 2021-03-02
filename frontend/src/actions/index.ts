@@ -8,11 +8,12 @@ import {
   TOGGLE_PLAN,
 } from './types';
 
-// const PLANS_API_URI =
-//   process.env.NODE_ENV === 'production'
-//     ? 'http://localhost:5000/api/v1/plans'
-//     : '/api/v1/plans';
-const PLANS_API_URI = '/api/v1/plans';
+const PLANS_API_URI =
+  process.env.NODE_ENV === 'production'
+    ? 'http://localhost:5000/api/v1/plans'
+    : '/api/v1/plans';
+
+// const PLANS_API_URI = '/api/v1/plans';
 
 export const getPlans = () => async (dispatch: Function) => {
   const res = await axios.get(PLANS_API_URI);
