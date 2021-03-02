@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 
-const mongoURL =
-  process.env.NODE_ENV === 'production'
-    ? (process.env.MONGO_URI as string)
-    : 'mongodb://localhost:27017/plans';
+import { isProduction } from './config';
+
+const mongoURL = isProduction
+  ? (process.env.MONGO_URI as string)
+  : 'mongodb://localhost:27017/plans';
 
 class PlansDatabase {
   private connection: string;

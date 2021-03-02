@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
@@ -16,6 +16,7 @@ mongoose
   })
   .catch((err) => {
     console.log('MongoDB connection error: ' + err);
+    console.log(mongoURL);
     // process.exit(1);
   });
 
@@ -27,10 +28,12 @@ const origin = {
   // origin: isProduction ? 'http://localhost:3000' : '*',
   origin: '*',
 };
-
 app.use(cors(origin));
+
+// Routes
 app.use('/api/v1', v1Router);
-if (process.env.NODE_ENV === 'production') {
+
+if (isProduction) {
   app.use(express.static('frontend/build'));
 
   const path = require('path');
