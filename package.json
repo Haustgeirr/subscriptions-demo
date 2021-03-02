@@ -2,15 +2,21 @@
   "name": "subscription-demo",
   "version": "1.0.0",
   "description": "Demo Subscription page, made with React and NodeJS",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Haustgeirr/subscriptions-demo.git"
+  },
   "main": "build/index.js",
   "scripts": {
     "docker": "tsc && docker-compose up -d",
     "start": "node build/index.js",
-    "dev:tsc": "tsc -w ",
-    "dev:nodemon": "nodemon build/index.js",
-    "dev:mongo": "docker-compose up -d mongo",
-    "DISABLEDdev:frontend": "npm run start --prefix frontend",
     "dev": "concurrently npm:dev:*",
+    "dev:tsc": "tsc -w ",
+    "dev:server": "nodemon build/index.js",
+    "dev:mongo": "docker-compose up -d mongo",
+    "dev:frontend": "npm run start --prefix frontend",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "test": "jest --config ./jest.config.json",
     "build": "tsc --build tsconfig.json"
   },
@@ -19,7 +25,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.11.10"
+    "mongoose": "^5.11.10",
+    "nodemon": "^2.0.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.9",

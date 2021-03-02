@@ -1,39 +1,40 @@
-import React from "react";
-import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
-import { fade } from "@material-ui/core/styles/colorManipulator";
-import { Avatar, Card, CardHeader } from "@material-ui/core";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import AddCircleRounded from "@material-ui/icons/AddCircleRounded";
-import CheckCircleRounded from "@material-ui/icons/CheckCircleRounded";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { PlanCardProps } from "../types";
-import { togglePlan } from "../actions";
+import { makeStyles } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import { Avatar, Card, CardHeader } from '@material-ui/core';
+import ButtonBase from '@material-ui/core/ButtonBase';
+import AddCircleRounded from '@material-ui/icons/AddCircleRounded';
+import CheckCircleRounded from '@material-ui/icons/CheckCircleRounded';
+
+import { PlanCardProps } from '../types';
+import { togglePlan } from '../actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
   buttonBase: {
-    width: "100%",
-    textAlign: "left",
+    width: '100%',
+    textAlign: 'left',
   },
   card: {
     borderRadius: 36,
-    width: "100%",
+    width: '100%',
     marginBottom: 16,
-    "&:hover": {
+    '&:hover': {
       backgroundColor: fade(theme.palette.primary.main, 0.08),
     },
   },
   cardActive: {
     backgroundColor: fade(theme.palette.primary.main, 0.16),
-    "&:hover": {
+    '&:hover': {
       backgroundColor: fade(theme.palette.primary.main, 0.32),
     },
   },
   cardHeader: {
-    width: "100%",
+    width: '100%',
   },
   action: {
     marginTop: 0,
@@ -43,8 +44,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 8,
   },
   avatarImg: {
-    width: "auto",
-    height: "auto",
+    width: 'auto',
+    height: 'auto',
   },
 }));
 
@@ -58,7 +59,7 @@ const PlanCard = ({
   const classes = useStyles();
 
   const cardStyle =
-    classes.card + " " + (plan.selected ? classes.cardActive : null);
+    classes.card + ' ' + (plan.selected ? classes.cardActive : null);
 
   return (
     <Card className={cardStyle} onClick={() => togglePlan(plan.planCode)}>
@@ -77,12 +78,12 @@ const PlanCard = ({
           action={
             plan.selected ? (
               <CheckCircleRounded
-                color="primary"
+                color='primary'
                 classes={{ root: classes.actionButton }}
               />
             ) : (
               <AddCircleRounded
-                color="action"
+                color='action'
                 classes={{ root: classes.actionButton }}
               />
             )

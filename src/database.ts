@@ -1,21 +1,11 @@
 import mongoose from 'mongoose';
 
-const mongoURI =
+const mongoURL =
   process.env.NODE_ENV === 'production'
     ? (process.env.MONGO_URI as string)
     : 'mongodb://localhost:27017/plans';
 
-// const database = async () => {
-//   try {
-//     await mongoose.connect(mongoURI);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// export default database;
-
-export default class PlansDatabase {
+class PlansDatabase {
   private connection: string;
 
   constructor(connection: string) {
@@ -27,3 +17,5 @@ export default class PlansDatabase {
     }
   }
 }
+
+export { mongoURL, PlansDatabase };

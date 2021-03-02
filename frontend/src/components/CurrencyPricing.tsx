@@ -1,10 +1,11 @@
-import React from "react";
-import { connect } from "react-redux";
-import { FormHelperText, MenuItem, Select } from "@material-ui/core";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { setCurrency } from "../actions";
-import { CURRENCY } from "../constants";
-import { State } from "../types";
+import { FormHelperText, MenuItem, Select } from '@material-ui/core';
+
+import { setCurrency } from '../actions';
+import { CURRENCY } from '../constants';
+import { State } from '../types';
 
 const CurrencyPricing = ({
   activeCurrency,
@@ -14,7 +15,7 @@ const CurrencyPricing = ({
   setCurrency: Function;
 }) => {
   return (
-    <div className="currency">
+    <div className='currency'>
       <Select
         value={activeCurrency}
         onChange={(e) => {

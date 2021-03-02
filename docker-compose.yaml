@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   mongo:
     container_name: mongo
@@ -11,17 +12,20 @@ services:
       - ./config/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     environment:
       MONGO_INITDB_DATABASE: plans
+
   server:
     container_name: server
     build:
       context: .
     ports:
       - '5000:5000'
+
   client:
     container_name: client
     build:
       context: ./frontend
     ports:
       - '3000:80'
+
 volumes:
   mongodb-data:

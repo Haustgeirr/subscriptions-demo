@@ -1,22 +1,23 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Button, ButtonGroup } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { setBillingPeriod } from "../actions";
-import { BILLING_PERIOD } from "../constants";
-import { State } from "../types";
+import { Button, ButtonGroup } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { setBillingPeriod } from '../actions';
+import { BILLING_PERIOD } from '../constants';
+import { State } from '../types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     marginTop: 16,
     marginBottom: 24,
   },
   buttonActive: {
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
 }));
 
@@ -31,14 +32,14 @@ const BillingPeriod = ({
 
   return (
     <div className={classes.root}>
-      <ButtonGroup color="primary" aria-label="outlined primary button group">
+      <ButtonGroup color='primary' aria-label='outlined primary button group'>
         {Object.keys(BILLING_PERIOD).map((periodKey) => {
           const currentPeriod = BILLING_PERIOD[periodKey];
           return (
             <Button
               key={`billing-period-${currentPeriod}`}
               variant={
-                currentPeriod === activePeriod ? "contained" : "outlined"
+                currentPeriod === activePeriod ? 'contained' : 'outlined'
               }
               onClick={() => {
                 setBillingPeriod(currentPeriod);

@@ -8,7 +8,7 @@ RUN npm install
 RUN npm run build
 # RUN npm prune --production
 
-# Compile Typescript
+# Transpile Typescript
 FROM node:10.23.1-alpine3.9
 WORKDIR /app
 COPY package*.json ./

@@ -3,25 +3,20 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import { isProduction } from './config';
+import { mongoURL } from './database';
 
 // v1 router
 import { v1Router } from './api/v1';
 
-// Connect to MongoDB
-const mongoURI =
-  process.env.NODE_ENV === 'production'
-    ? (process.env.MONGO_URI as string)
-    : 'mongodb://localhost:27017/plans';
-
 mongoose
-  .connect(mongoURI, {
+  .connect(mongoURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
   .catch((err) => {
     console.log('MongoDB connection error: ' + err);
-    process.exit(1);
+    // process.exit(1);
   });
 
 // Create Express server
