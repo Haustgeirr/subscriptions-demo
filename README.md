@@ -1,3 +1,8 @@
+# Details
+
+The project can be viewed on
+[heroku](https://afternoon-meadow-35658.herokuapp.com/).
+
 ## Quick Start
 
 At project root run the following command
@@ -6,7 +11,8 @@ At project root run the following command
 
 Open [http://localhost:3000](http://localhost:3000) to view in the browser.
 
-> **Note:** This will create 2 cached images as part of the multi-stage build.
+> **Note:** This will create 2 cached images as part of the multi-stage build,
+> and will take around 1.5 GB.
 
 ## Starting
 
@@ -22,5 +28,5 @@ At project root run the following command
 
 ## Details
 
-Subscription Demo page, built using React, Redux, NodeJS and MongoDB.
-Currently working on implementing hexagonal architecture and testing
+Subscription Demo page, built using React, Redux, NodeJS and MongoDB. Currently
+working on implementing unit testing
